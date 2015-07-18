@@ -17,7 +17,7 @@ class MailerTest < Minitest::Test
     )
   end
 
-  def test_foo
+  def test_email_with_html_and_image
     assert_emails(1) do
       @mailer.deliver_now
     end
@@ -29,5 +29,6 @@ class MailerTest < Minitest::Test
 
     parts = mail.body.parts
     assert_equal 2, parts.size
+    assert_match /<img src=\"cid:[^"]*\" \/>/, mail.html_part.body.to_s
   end
 end

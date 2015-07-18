@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+require 'pic_of_the_day'
+
+options = PicOfTheDay::OptionParser.new(ARGV).parse
+
+begin
+  PicOfTheDay.send_email(**options)
+rescue PicOfTheDay::Error => e
+  puts "#{e.class.name}: #{e.message}"
+  exit 1
+end

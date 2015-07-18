@@ -1,5 +1,6 @@
 require 'action_mailer'
 
+ActionMailer::Base.delivery_method = :sendmail
 ActionMailer::Base.view_paths = File.expand_path('../../../templates/', __FILE__)
 
 module PicOfTheDay

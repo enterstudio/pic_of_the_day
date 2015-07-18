@@ -22,7 +22,7 @@ class PicOfTheDayTest < Minitest::Test
     tempfile.puts(__FILE__)
     tempfile.close
 
-    assert_raises(PicOfTheDay::NoImagesLeft) do
+    assert_raises(PicOfTheDay::NoImagesLeftError) do
       PicOfTheDay.send_email(
         from: "bob@bob.com",
         to: "alice@alice.com",

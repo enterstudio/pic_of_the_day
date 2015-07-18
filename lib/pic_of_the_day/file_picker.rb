@@ -23,7 +23,11 @@ module PicOfTheDay
     end
 
     def blacklisted_files
-      File.readlines(@blacklist_file_path).map(&:chomp)
+      if File.exist?(@blacklist_file_path)
+        File.readlines(@blacklist_file_path).map(&:chomp)
+      else
+        []
+      end
     end
 
     def blacklist_file(file_path)

@@ -1,4 +1,4 @@
-Picks a random image from a list and sends it as an inline
+Picks a random image from a list and sends it as an
 attachment via email.
 
 ```

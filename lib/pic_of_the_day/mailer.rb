@@ -7,7 +7,7 @@ module PicOfTheDay
   class Mailer < ActionMailer::Base
     def mail_with_picture(from:, to:, subject:, image_path:)
       @filename = File.basename(image_path)
-      attachments.inline[@filename] = File.binread(image_path)
+      attachments[@filename] = File.binread(image_path)
 
       options = {
         from: from,
